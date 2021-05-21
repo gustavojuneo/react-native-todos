@@ -11,6 +11,7 @@ interface Task {
 
 export function Home() {
   const [tasks, setTasks] = useState<Task[]>([])
+  const [darkTheme, setDarkTheme] = useState(false)
 
   function handleAddTask(newTaskTitle: string) {
     const data = {
@@ -38,14 +39,19 @@ export function Home() {
     setTasks(filteredTask)
   }
 
+  function toggleDarkTheme() {
+    setDarkTheme(!darkTheme)
+  }
+
   return (
     <>
-      <Header />
+      <Header toggleTheme={toggleDarkTheme} darkTheme={darkTheme} />
 
-      <TodoInput addTask={handleAddTask} />
+      <TodoInput addTask={handleAddTask} darkTheme={darkTheme} />
 
       <MyTasksList
         tasks={tasks}
+        darkTheme={darkTheme}
         onPress={handleMarkTaskAsDone}
         onLongPress={handleRemoveTask}
       />

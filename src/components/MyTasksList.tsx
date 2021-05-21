@@ -22,11 +22,17 @@ interface MyTasksListProps {
     title: string
     done: boolean
   }[]
+  darkTheme: boolean
   onPress: (id: number) => void
   onLongPress: (id: number) => void
 }
 
-export function MyTasksList({ tasks, onLongPress, onPress }: MyTasksListProps) {
+export function MyTasksList({
+  tasks,
+  darkTheme,
+  onLongPress,
+  onPress,
+}: MyTasksListProps) {
   return (
     <FlatList
       data={tasks}

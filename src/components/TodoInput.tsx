@@ -12,9 +12,10 @@ import checkIcon from '../assets/icons/Check.png'
 
 interface TodoInputProps {
   addTask: (task: string) => void
+  darkTheme: boolean
 }
 
-export function TodoInput({ addTask }: TodoInputProps) {
+export function TodoInput({ addTask, darkTheme }: TodoInputProps) {
   const [task, setTask] = useState('')
 
   function handleAddNewTask() {
